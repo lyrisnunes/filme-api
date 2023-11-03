@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, useNavigate} from 'react-router-dom';
 
 import {api} from '../../services/api';
 import { Container, Loading } from '../Movie/styles';
 
 export function Movie(){
+
    const {id} = useParams();
+   const navigation = useNavigate();
    const [movie, setMovie] = useState({});
    const [loading, setLoading] = useState(true);
 
@@ -22,11 +24,12 @@ export function Movie(){
             setLoading(false);
          })
          .catch(() => {
-            console.log("filme não encontrado")
+            navigation("/", {replace: true})
+            return;
          })
       }
       loadMovie();
-   }, [])
+   }, [navigation, id])
 
    if(loading){
       return(
@@ -46,7 +49,11 @@ export function Movie(){
 
          <div className='btn'>
             <button>Salvar</button>
-            <button><a href="#"></a>Trailer</button>
+            <button>
+            <a target="_blank" rel="external" href={`https://youtube.com/results?search_query=${movie.title} trailer`}>
+                  Trailer
+               </a>
+            </button>
          </div>
       </Container>
    )

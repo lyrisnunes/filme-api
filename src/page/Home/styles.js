@@ -7,6 +7,18 @@ export const Container = styled.div`
   > div {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    @media(max-width:1300px){
+    grid-template-columns: 1fr 1fr  ;
+    }
+
+    @media(max-width:800px){
+    grid-template-columns: 1fr;
+    }
+  }
+
+  h4{
+    margin-bottom: 1rem;
   }
 
   article {
@@ -39,6 +51,13 @@ export const Container = styled.div`
   a:hover {
     background-color: #9466ff;
   }
+
+  p{
+    background-color: #0B0726;
+   text-align: center;
+   padding: 1rem;
+
+  }
 `;
 
 export const Loading = styled.div`
@@ -46,4 +65,12 @@ export const Loading = styled.div`
   justify-content: center;
   align-items: center;
   padding-top: 5rem;
+`;
+
+export const Content = styled.div`
+   p{
+    background-color: #0B0726;
+   text-align: center;
+   padding: 1.5rem;
+   }
 `;

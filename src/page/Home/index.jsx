@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import {api} from "../../services/api";
-import { Container, Loading } from "./styles";
+import { Container, Loading, Content } from "./styles";
 import { Link } from "react-router-dom";
 
 export function Home(){
@@ -34,20 +34,22 @@ export function Home(){
       )
    }
 
-
    return(
-      <Container>
-            <div>
-               {movies.map((movie) => {
-                  return(
-                     <article key={movie.id}>
-                        <strong>{movie.title}</strong>
-                        <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt={movie.title} />
-                        <Link to={`/movie/${movie.id}`}>Acessar</Link>
-                     </article>
-                  )
-               })}
-            </div>
-      </Container>
+      <Content>
+       <p>Os melhores filmes aqui, os melhores filmes em cartas aqui no NET<span>.</span>FILME</p>
+         <Container>
+               <div>
+                  {movies.map((movie) => {
+                     return(
+                        <article key={movie.id}>
+                           <h4>{movie.title}</h4>
+                           <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt={movie.title} />
+                           <Link to={`/movie/${movie.id}`}>Acessar</Link>
+                        </article>
+                     )
+                  })}
+               </div>
+         </Container>
+      </Content>
    )
 }
