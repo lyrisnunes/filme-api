@@ -31,6 +31,23 @@ export function Movie(){
       loadMovie();
    }, [navigation, id])
 
+   function saveMovie(){
+      const myList = localStorage.getItem("@netmovie");
+      // acessa a myList e verifica se tem algo, se não retorna array vazia
+      let movieSave = JSON.parse(myList) || [];
+      // retorna se é true ou false
+      const hasMovie = movieSave.some((movieSaves) => movieSaves.id === movie.id )
+
+      if(hasMovie){
+         alert("Esse filme já está salvo")
+         return;
+      }
+
+      movieSave.push(movie); // adiciono o filme
+      localStorage.setItem("@netmovie", JSON.stringify(movieSave))
+      alert("FILME SALVO COM SUCESSO")
+   }
+
    if(loading){
       return(
          <Loading>
@@ -48,9 +65,9 @@ export function Movie(){
          <p className='vote'>Avaliação: {movie.vote_average} / 10</p>
 
          <div className='btn'>
-            <button>Salvar</button>
+            <button onClick={saveMovie}>Salvar</button>
             <button>
-            <a target="_blank" rel="external" href={`https://youtube.com/results?search_query=${movie.title} trailer`}>
+            <a target="blank" rel="external" href={`https://youtube.com/results?search_query=${movie.title} trailer`}>
                   Trailer
                </a>
             </button>
