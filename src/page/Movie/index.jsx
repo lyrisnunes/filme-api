@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import {useParams, useNavigate} from 'react-router-dom';
-
+import { toast } from 'react-toastify';
 import {api} from '../../services/api';
 import { Container, Loading } from '../Movie/styles';
 
@@ -39,13 +39,13 @@ export function Movie(){
       const hasMovie = movieSave.some((movieSaves) => movieSaves.id === movie.id )
 
       if(hasMovie){
-         alert("Esse filme já está salvo")
+         toast.warning("Esse filme já está salvo")
          return;
       }
 
       movieSave.push(movie); // adiciono o filme
       localStorage.setItem("@netmovie", JSON.stringify(movieSave))
-      alert("FILME SALVO COM SUCESSO")
+      toast.success("Filme salvo com sucesso")
    }
 
    if(loading){

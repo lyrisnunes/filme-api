@@ -11,7 +11,6 @@ export const Container = styled.div`
     font-size: 1.5em;
     color: ${({ theme }) => theme.COLORS.WHITE};
     cursor: pointer;
-    font-weight: 500;
   }
 
   .logo span {
@@ -19,13 +18,13 @@ export const Container = styled.div`
   }
 
   a {
-    font-size: 1.5rem;
+    font-size: 1.7rem;
   }
 
   .btn {
     cursor: pointer;
     background-color: ${({ theme }) => theme.COLORS.PURPLE};
-    color: #fff;
+    color: ${({ theme }) => theme.COLORS.WHITE};
     padding: 1.5rem;
     border-radius: 4px;
   }

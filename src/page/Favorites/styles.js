@@ -2,13 +2,20 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
+  span{
+   text-align: center;
+   padding-top: 2rem;
+   display: block;
+   font-size: 2rem;
+  }
+
    h1{
       text-align: center;
-      margin-top: 3rem;
+      margin-top: 5rem;
    }
    
    ul{
-     width: 60rem ;
+     width: 65rem ;
      margin: 0 auto;
      margin-top: 4rem;
      padding: 0 1rem;
@@ -33,6 +40,7 @@ export const Container = styled.div`
    li .btn button{
       padding: .8rem 2rem;
       cursor: pointer;
+      color: ${({ theme })=> theme.COLORS.BACKGROUND};
    }
 
    @media(max-width:500px){
