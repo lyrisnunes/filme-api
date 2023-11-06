@@ -18,7 +18,7 @@ export function Home(){
             }
          })
          // armazenar apenas 10 filmes
-         setMovies(response.data.results.slice(0,10))
+         setMovies(response.data.results.slice(0,25))
          setLoading(false)
       }
       loadMovies();

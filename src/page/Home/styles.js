@@ -15,6 +15,7 @@ export const Container = styled.div`
     @media(max-width:800px){
     grid-template-columns: 1fr;
     }
+
   }
 
   h4{
@@ -36,6 +37,7 @@ export const Container = styled.div`
     object-fit: cover;
 
     border-radius: 1rem 1rem 0 0;
+
   }
 
   a {
@@ -58,6 +60,8 @@ export const Container = styled.div`
    padding: 1rem;
 
   }
+  
+ 
 `;
 
 export const Loading = styled.div`
